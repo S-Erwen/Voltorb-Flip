@@ -1,4 +1,4 @@
-NAME 	= 	./bin/voltorb.a
+NAME 	= 	./bin/voltorb.exe
 
 SRCS 	= 	main.c \
 			./src/interface.c \

@@ -13,6 +13,9 @@
 
 int main()
 {
-	game_volt();
+	int 	lng;
+
+	lng = welcolm();
+	game_volt(lng);
 	return (0);
 }

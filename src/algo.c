@@ -434,6 +434,11 @@ char	**gamevoid_map_with_volt(int lvl)
 	return (map);
 }
 
+/*int		game_is_win(int lng)
+{
+
+}*/
+
 char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map)
 {
 	int		hz;
@@ -451,6 +456,7 @@ char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map)
 			ft_putstr(soluce_map[i++]);
 		sleep(3);
 		what_script("997.", lng);
+		sleep(1);
 		game_volt(lng);
 	}
 	if (void_map[hz][vt] != ' ')

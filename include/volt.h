@@ -27,6 +27,7 @@
 # include "./libft/libft.h"
 
 void	game_volt(int lng);
+int		welcolm();
 
 void	ft_putstr(const char *str);
 void	ft_putchar(char c);
