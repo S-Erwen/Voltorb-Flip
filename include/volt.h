@@ -26,7 +26,7 @@
 
 # include "./libft/libft.h"
 
-void	game_volt(int lng);
+void	game_volt(int lng, int lvl);
 int		welcolm();
 
 void	ft_putstr(const char *str);
@@ -47,7 +47,9 @@ int		write_ignior(int lng);
 char	**game_map_with_volt(int lvl);
 char	**gamevoid_map_with_volt(int lvl);
 char	get_user_number(int lng, int vtlg);
-char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map);
+char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int lvl);
 int		nb_to_map(int nb);
+
+int		game_is_win();
 
 # endif

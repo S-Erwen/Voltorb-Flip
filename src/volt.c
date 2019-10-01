@@ -24,24 +24,23 @@ int		welcolm()
 	return (lng);
 }
 
-void	game_volt(int lng)
+void	game_volt(int lng, int lvl)
 {
 	char	**soluce_map;
 	char	**void_map;
 	int		i;
+	int		tt;
 
 	i = 0;
-	soluce_map = game_map_with_volt(1);
-	void_map = gamevoid_map_with_volt(1);
+	soluce_map = game_map_with_volt(lvl);
+	void_map = gamevoid_map_with_volt(lvl);
+	tt = game_is_win();
 	while (1)
 	{
 		sleep(0.4);
 		while (void_map[i])
 			ft_putstr(void_map[i++]);
-		algo_if_is_clear(lng, void_map, soluce_map);
+		algo_if_is_clear(lng, void_map, soluce_map, tt, lvl);
 		i = 0;
 	}
-	i = 0;
-	while (soluce_map[i])
-		ft_putstr(soluce_map[i++]);
 }

@@ -14,8 +14,10 @@
 int main()
 {
 	int 	lng;
+	int 	lvl;
 
+	lvl = 1;
 	lng = welcolm();
-	game_volt(lng);
+	game_volt(lng, lvl);
 	return (0);
 }

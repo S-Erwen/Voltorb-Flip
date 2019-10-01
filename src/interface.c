@@ -105,7 +105,7 @@ char	get_user_number(int lng, int vtlg)
 	else
 		what_script("6.", lng);
 	nb = getchar();
-	sleep(0.2);
+	sleep(0.3);
 	nb -= '0';
 	while (!(nb > 0 && nb < 6))
 	{

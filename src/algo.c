@@ -1,5 +1,8 @@
 #include "../include/volt.h"
 
+int		x3;
+int		x2;
+
 int		nb_to_map(int nb)
 {
 	int temp;
@@ -102,6 +105,7 @@ char	**x3_rand(int lvl)
 		}
 		i++;
 	}
+	x3 = count;
 	return (map);
 }
 
@@ -182,6 +186,7 @@ char	**x2_rand(int lvl)
 		}
 		i++;
 	}
+	x2 = count;
 	return (map);
 }
 
@@ -434,18 +439,31 @@ char	**gamevoid_map_with_volt(int lvl)
 	return (map);
 }
 
-/*int		game_is_win(int lng)
+int		game_is_win()
 {
+	int tt;
+	
+	tt = x3 + x2;
+	return (tt);
+}
 
-}*/
-
-char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map)
+char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int lvl)
 {
 	int		hz;
 	int		vt;
 	int		i;
 
 	i = 0;
+	if (tt == 0)
+	{
+		what_script("777.", lng);
+		lvl++;
+		what_script("997.", lng);
+		ft_putstr(ft_itoa(lvl));
+		ft_putchar('\n');
+		sleep(1.5);
+		game_volt(lng, lvl);
+	}
 	hz = get_user_number(lng, 2);
 	vt = get_user_number(lng, 1);
 	if (soluce_map[hz][vt] == '4')
@@ -455,20 +473,23 @@ char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map)
 		while (soluce_map[i])
 			ft_putstr(soluce_map[i++]);
 		sleep(3);
+		lvl = 1;
 		what_script("997.", lng);
+		ft_putstr(ft_itoa(lvl));
+		ft_putchar('\n');
 		sleep(1);
-		game_volt(lng);
+		game_volt(lng, lvl);
 	}
 	if (void_map[hz][vt] != ' ')
 	{
 		what_script("8.", lng);
-		return (algo_if_is_clear(lng, void_map, soluce_map));
+		return (algo_if_is_clear(lng, void_map, soluce_map, tt, lvl));
 	}
-	else if (soluce_map[hz][vt] == '3')
+	else if ((soluce_map[hz][vt] == '3') || (soluce_map[hz][vt] == '2')
+	|| (soluce_map[hz][vt] == '1'))
+	{
 		void_map[hz][vt] = soluce_map[hz][vt];
-	else if (soluce_map[hz][vt] == '2')
-		void_map[hz][vt] = soluce_map[hz][vt];
-	else if (soluce_map[hz][vt] == '1')
-		void_map[hz][vt] = soluce_map[hz][vt];
+		tt -= 1;
+	}
 	return (void_map);
 }
