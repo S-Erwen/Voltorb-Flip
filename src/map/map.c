@@ -56,7 +56,7 @@ char	*read_map()
 	char	buf[BUF_SIZE + 1];
 	char	*dest;
 
-	fd = open("/mnt/c/Users/Erwen/Documents/projects/VoltorBataille/src/map/map_base", O_RDONLY);
+	fd = open("/mnt/c/Users/Erwen/Documents/projects/Voltorb-Flip/src/map/map_base", O_RDONLY);
 	if (fd == -1)
 	{
 		ft_putstr("open(map) error");

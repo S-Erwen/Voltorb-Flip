@@ -80,5 +80,6 @@ void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 char	*strchrstr(char *s1, char *s2, int chr);
+int		fgeters(char *str, int len);
 
 # endif

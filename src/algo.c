@@ -31,7 +31,7 @@ char	**volt_rand(int lvl)
 	{
 		place = 1;
 		ligne = 1;
-		while (map[ligne][place] != '4')
+		while (map[ligne][place] != '#')
 		{
 			place = (rand() % (25 - 1 + 1)) + 1;
 			while (place > 5)
@@ -40,7 +40,7 @@ char	**volt_rand(int lvl)
 				place -= 5;
 			}
 			place = nb_to_map(place);
-			map[ligne][place] = '4';
+			map[ligne][place] = '#';
 		}
 		i++;
 	}
@@ -92,7 +92,7 @@ char	**x3_rand(int lvl)
 	{
 		place = 1;
 		ligne = 1;
-		while (map[ligne][place] != '4' && map[ligne][place] != '3')
+		while (map[ligne][place] != '#' && map[ligne][place] != '3')
 		{
 			place = (rand() % (25 - 1 + 1)) + 1;
 			while (place > 5)
@@ -172,7 +172,7 @@ char	**x2_rand(int lvl)
 	{
 		place = 1;
 		ligne = 1;
-		while (map[ligne][place] != '4' && map[ligne][place] != '3'
+		while (map[ligne][place] != '#' && map[ligne][place] != '#'
 				&& map[ligne][place] != '2')
 		{
 			place = (rand() % (25 - 1 + 1)) + 1;
@@ -213,7 +213,7 @@ char	**x1_rand(int lvl)
 			place -= 5;
 		}
 		place = nb_to_map(place);
-		if ((map[ligne][place] != '4' && map[ligne][place] != '3'
+		if ((map[ligne][place] != '#' && map[ligne][place] != '3'
 			&& map[ligne][place] != '2' && map[ligne][place] != '1') && twenty_five != 0)
 			map[ligne][place] = '1';
 		twenty_five--;
@@ -275,7 +275,7 @@ char	**game_soluce_hz(int lvl)
 			two = 0;
 			one = 0;
 		}
-		if (map[ligne][place] == '4')
+		if (map[ligne][place] == '#')
 			volt++;
 		if (map[ligne][place] == '3')
 			three++;
@@ -337,7 +337,7 @@ char	**game_soluce_vt(int lvl)
 	{
 		place = 1 + z;
 		place = nb_to_map(place);
-		if (map[ligne][place] == '4')
+		if (map[ligne][place] == '#')
 			volt++;
 		if (map[ligne][place] == '3')
 			three++;
@@ -447,7 +447,7 @@ int		game_is_win()
 	return (tt);
 }
 
-char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int lvl)
+int		algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int lvl)
 {
 	int		hz;
 	int		vt;
@@ -466,7 +466,7 @@ char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int
 	}
 	hz = get_user_number(lng, 2);
 	vt = get_user_number(lng, 1);
-	if (soluce_map[hz][vt] == '4')
+	if (soluce_map[hz][vt] == '#')
 	{
 		what_script("999.", lng);
 		sleep(3);
@@ -485,11 +485,12 @@ char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int
 		what_script("8.", lng);
 		return (algo_if_is_clear(lng, void_map, soluce_map, tt, lvl));
 	}
-	else if ((soluce_map[hz][vt] == '3') || (soluce_map[hz][vt] == '2')
-	|| (soluce_map[hz][vt] == '1'))
+	else if ((soluce_map[hz][vt] == '3') || (soluce_map[hz][vt] == '2'))
 	{
 		void_map[hz][vt] = soluce_map[hz][vt];
-		tt -= 1;
+		tt--;
 	}
-	return (void_map);
+	else if (soluce_map[hz][vt] == '1')
+		void_map[hz][vt] = soluce_map[hz][vt];
+	return (tt);
 }

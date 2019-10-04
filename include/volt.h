@@ -35,21 +35,25 @@ void	ft_putstr_fd(char const *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr(int n);
 int		ft_strlen(const char *str);
+char	*ft_strchr(const char *s, int c);
 char	*strchrstr(char *s1, char *s2, int chr);
+int		fgeters(char *str, int len);
 int		language_selected();
 char 	**map_to_tab();
 char	**ft_strsplit(char const *s, char c);
 char	*ft_strstr(char *s1, char *s2);
 char	*ft_itoa(int n);
+char	*ft_strnew(size_t size);
 
 void	what_script(char *nb, int lng);
 int		write_ignior(int lng);
 char	**game_map_with_volt(int lvl);
 char	**gamevoid_map_with_volt(int lvl);
 char	get_user_number(int lng, int vtlg);
-char	**algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int lvl);
+int		algo_if_is_clear(int lng, char **void_map, char **soluce_map, int tt, int lvl);
 int		nb_to_map(int nb);
 
+char	*i_need_help(int lng);
 int		game_is_win();
 
 # endif

@@ -15,6 +15,9 @@ SRCS 	= 	main.c \
 			./include/libft/ft_putchar_fd.c \
 			./include/libft/ft_strstr.c \
 			./include/libft/ft_itoa.c \
+			./include/libft/ft_strnew.c \
+			./include/libft/fgeters.c \
+			./include/libft/ft_strchr.c \
 
 HEADER 	= volt.h
 OBJS 	= ${SRCS:.c=.o}
